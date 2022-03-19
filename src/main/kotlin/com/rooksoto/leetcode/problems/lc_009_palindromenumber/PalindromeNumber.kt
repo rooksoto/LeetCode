@@ -3,7 +3,7 @@ package com.rooksoto.leetcode.problems.lc_009_palindromenumber
 class PalindromeNumber {
 
     // ****************************************************************
-    // Given an integer x, return true if x is palindrome integer.
+    // Given an integer x, return true if x is a palindrome integer.
     //
     // An integer is a palindrome when it reads the same backward as
     // forward.
@@ -38,12 +38,26 @@ class PalindromeNumber {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n), where n is the number of digits in [x]
+        // Space Complexity: O(2), as [number] and [reversed] are stored
         fun isPalindrome(
             x: Int
         ): Boolean {
-            TODO("Implement logic.")
+            if (x < 0) return false
+            if (x < 10) return true
+            if (x % 10 == 0) return false
+            var number = x
+            var reversedX = 0
+
+            while (number >= 10) {
+                reversedX = (reversedX * 10) + (number % 10)
+                number /= 10
+            }
+            if (number > 0) {
+                reversedX = (reversedX * 10) + number
+            }
+            return x == reversedX
         }
     }
 }
+

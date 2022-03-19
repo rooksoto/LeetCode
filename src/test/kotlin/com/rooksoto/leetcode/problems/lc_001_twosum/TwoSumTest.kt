@@ -18,7 +18,7 @@ class TwoSumTest {
         val actual = testSubject.solve(nums, target)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
     }
 
     @Test
@@ -32,7 +32,7 @@ class TwoSumTest {
         val actual = testSubject.solve(nums, target)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
     }
 
     @Test
@@ -46,6 +46,6 @@ class TwoSumTest {
         val actual = testSubject.solve(nums, target)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
     }
 }

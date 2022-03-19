@@ -10,14 +10,14 @@ class PalindromeNumberTest {
     @Test
     fun `Example 1`() {
         // GIVEN
-        val x = 122
+        val x = 121
         val expected = true
 
         // WHEN
         val actual = testSubject.solve(x)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
     }
 
     @Test
@@ -30,7 +30,7 @@ class PalindromeNumberTest {
         val actual = testSubject.solve(x)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
     }
 
     @Test
@@ -43,6 +43,19 @@ class PalindromeNumberTest {
         val actual = testSubject.solve(x)
 
         // THEN
-        expected shouldBeEqualTo actual
+        actual shouldBeEqualTo expected
+    }
+
+    @Test
+    fun `Example 4`() {
+        // GIVEN
+        val x = 1001
+        val expected = true
+
+        // WHEN
+        val actual = testSubject.solve(x)
+
+        // THEN
+        actual shouldBeEqualTo expected
     }
 }
