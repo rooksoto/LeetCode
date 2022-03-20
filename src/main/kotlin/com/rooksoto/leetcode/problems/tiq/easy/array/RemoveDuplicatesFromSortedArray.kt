@@ -49,12 +49,23 @@ class RemoveDuplicatesFromSortedArray {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n), where n is the number of digits in nums
+        // Space Complexity: O(2), as we're storing 2 ints
         fun removeDuplicates(
             nums: IntArray
         ): Int {
-            TODO("Implement logic.")
+            var latestUniqueIndex = 0
+            var uniqueDigits = 1
+
+            nums.forEachIndexed { index, i ->
+                if (latestUniqueIndex != index && nums[latestUniqueIndex] != i) {
+                    latestUniqueIndex++
+                    uniqueDigits++
+                    nums[latestUniqueIndex] = i
+                }
+            }
+
+            return uniqueDigits
         }
     }
 }
