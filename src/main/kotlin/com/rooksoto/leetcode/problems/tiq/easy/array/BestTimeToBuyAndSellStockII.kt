@@ -41,10 +41,22 @@ class BestTimeToBuyAndSellStockII {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
-        fun maxProfit(prices: IntArray): Int {
-            TODO("Implement logic.")
+        // Time Complexity: O(n), where n is the number of elements in prices
+        // Space Complexity: O(2), as we're storing 2 ints
+        fun maxProfit(
+            prices: IntArray
+        ): Int = when {
+            prices.isEmpty() -> 0
+            else -> {
+                var maxProfit = 0
+                1.until(prices.size).forEach { index ->
+                    val potentialProfit = prices[index] - prices[index - 1]
+                    if (potentialProfit > 0) {
+                        maxProfit += potentialProfit
+                    }
+                }
+                maxProfit
+            }
         }
     }
 }
