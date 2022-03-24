@@ -30,12 +30,16 @@ class ContainsDuplicate {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n)
+        // Space Complexity: O(n)
         fun containsDuplicate(
             nums: IntArray
-        ): Boolean {
-            TODO("Implement logic.")
-        }
+        ): Boolean =
+            LinkedHashSet<Int>().run {
+                nums.forEach {
+                    if (!add(it)) return@run true
+                }
+                return@run false
+            }
     }
 }
