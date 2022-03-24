@@ -34,12 +34,13 @@ class SingleNumber {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n), where n is the size of nums
+        // Space Complexity: O(1), a temporarily stored Int
         fun singleNumber(
             nums: IntArray
-        ): Int {
-            TODO("Implement logic.")
-        }
+        ): Int =
+            nums.reduce { acc, i ->
+                acc.xor(i)
+            }
     }
 }
