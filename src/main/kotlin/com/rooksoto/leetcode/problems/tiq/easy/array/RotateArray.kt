@@ -29,13 +29,34 @@ class RotateArray {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n2), as we traverse the array exactly
+        // twice
+        // Space Complexity: O(1), as we modify the array in place
         fun rotate(
             nums: IntArray,
             k: Int
         ) {
-            TODO("Implement logic.")
+
+            val actualSteps = k % nums.size
+
+            reverse(nums, 0, nums.size)
+            reverse(nums, 0, actualSteps)
+            reverse(nums, actualSteps, nums.size)
+        }
+
+        private fun reverse(
+            array: IntArray,
+            start: Int,
+            end: Int
+        ) {
+            val midPoint = start + ((end - start) / 2)
+            var endPoint = end
+            start.until(midPoint).forEach { index ->
+                val temp = array[index]
+                array[index] = array[endPoint - 1]
+                array[endPoint - 1] = temp
+                endPoint--
+            }
         }
     }
 }
