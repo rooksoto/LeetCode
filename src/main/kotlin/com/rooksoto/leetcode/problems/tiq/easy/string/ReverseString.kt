@@ -28,12 +28,17 @@ class ReverseString {
 
     class Solution {
 
-        // Time Complexity: TODO("Add time complexity.")
-        // Space Complexity: TODO("Add space complexity.")
+        // Time Complexity: O(n), where n is the length of s
+        // Space Complexity: O(1)
         fun reverseString(
             s: CharArray
-        ) {
-            TODO("Implement logic.")
+        ) = s.indices.forEach { index ->
+            val end = s.lastIndex - index
+            if (index < end) {
+                val temp = s[index]
+                s[index] = s[end]
+                s[end] = temp
+            }
         }
     }
 }
