@@ -2,6 +2,8 @@ package com.rooksoto
 
 interface Problem<I, O> {
 
+    val id: Int
+
     val name: String
 
     val instructions: String
