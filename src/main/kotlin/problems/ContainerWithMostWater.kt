@@ -29,23 +29,24 @@ class ContainerWithMostWater : Problem<IntArray, Int> {
 
     override fun solve(input: IntArray): Int =
         Solution().maxArea(input)
-}
 
-private class Solution {
-    fun maxArea(height: IntArray): Int {
-        var left = 0
-        var right = height.lastIndex
+    private class Solution {
+        fun maxArea(height: IntArray): Int {
+            var left = 0
+            var right = height.lastIndex
 
-        var result = 0
+            var result = 0
 
-        while (left < right) {
-            val distance = right - left
-            val leftWallHeight = height[left]
-            val rightWallHeight = height[right]
-            val area = minOf(leftWallHeight, rightWallHeight) * distance
-            if (area > result) result = area
-            if (leftWallHeight < rightWallHeight) left++ else right--
+            while (left < right) {
+                val distance = right - left
+                val leftWallHeight = height[left]
+                val rightWallHeight = height[right]
+                val area = minOf(leftWallHeight, rightWallHeight) * distance
+                if (area > result) result = area
+                if (leftWallHeight < rightWallHeight) left++ else right--
+            }
+            return result
         }
-        return result
     }
+
 }
